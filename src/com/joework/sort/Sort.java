@@ -1,4 +1,4 @@
-package com.joework;
+package com.joework.sort;
 
 public interface Sort<T extends Number & Comparable<T>> {
     int x = 10 ;

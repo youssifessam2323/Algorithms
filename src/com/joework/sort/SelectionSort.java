@@ -1,7 +1,6 @@
-package com.joework;
+package com.joework.sort;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class SelectionSort<T extends Number & Comparable<T>> implements Sort<T> {
 
