@@ -10,11 +10,14 @@ import java.util.Arrays;
  so we begin with the interval with 1 and increment it with this formula h = h*3+1 until it reach the third or
  the half of the array size then we reduce the operation until it be a normal insertion sort
  and every iteration you will reduce the h be h = (h - 1)/3
+
+
+ note: there
  */
 
-public class ShellSort {
+public class ShellSort implements Sort<Integer> {
 
-    public static void sort(int []arr) {
+    public void sort(Integer []arr) {
         int outer, inner, temp;
 
 
@@ -37,14 +40,6 @@ public class ShellSort {
             }
             h = (h - 1) / 3;
        }
-    }
-
-
-    public static void main(String[] args) {
-
-        int[] arr = {10, 7, 3, 2, 5, 8, 4, 6, 9, 1};
-        sort(arr);
-        System.out.println(Arrays.toString(arr));
     }
 
 }
