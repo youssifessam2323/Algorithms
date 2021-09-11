@@ -1,6 +1,7 @@
 package com.joework.sort;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * quick sort is one of the most popular sorting algorithms
@@ -17,7 +18,18 @@ import java.util.Arrays;
  *  first we find a pivot in the array to divide it into parts that follow this => left_subarray < pivot < right_subarray
  *  after we find the pivot we're sorting the left sub array and the right sub array recursively
  *
- *  FIND PIVOT: there is multiple way for defining pivot the one we will use is by taking the most right element as a pivot
+ *  FIND PIVOT:
+ *      METHOD 1:
+ *      - there is multiple way for defining pivot the one we will use is by taking the most right element as a pivot
+ *      - but the previous method can work very poor if the array is inversely sorted so the pivot will divide the array to n-1 element and 1 element
+ *
+ *      METHOD 2:
+ *      - this method work by calculate the median of the first,mid and last element in the array
+ *      - this method can be poor in some situation but in normal it is efficient and fast
+ *      - this method cannot sort arr of 3 or less item, IMPORTANT this case called cutoff
+ *      - so we can use insertion sort to sort hhe small subarrays and with insertion sort we can increase the cutoff as we want so we can set
+ *      it as 10,20 
+ *
  */
 
 public class QuickSort implements  Sort<Integer> {
@@ -67,10 +79,16 @@ public class QuickSort implements  Sort<Integer> {
     }
 
     public static void main(String[] args) {
-        QuickSort sort = new QuickSort();
+//        QuickSort sort = new QuickSort();
+//
+//        Integer [] arr = {6,5,1,2,3,4};
+//        sort.quickSort(arr,0, arr.length - 1);
+//        System.out.println(Arrays.toString(arr));
+        long start = System.nanoTime();
+        IntStream intStream = IntStream.range(0, 10000000);
+        long end = System.nanoTime();
+        System.out.println((end - start) / 1000000);
 
-        Integer [] arr = {6,5,1,2,3,4};
-        sort.quickSort(arr,0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+        intStream.forEach(System.out::println);
     }
 }
