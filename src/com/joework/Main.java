@@ -6,40 +6,53 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        int [] arr = new int[]{1,3,2};
-
-        System.out.println(isMonotonic(arr));
-
+        Main m = new Main();
+        int[] ints = {6, 2, 1, 4, 3, 5};
+        m.findDuplicate(ints);
     }
 
-    public static boolean isMonotonic(int[] nums) {
-        if(isSorted(nums) || isReversedSorted(nums)){
-            return true;
+    public int findDuplicate(int[] nums) {
+        quickSort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i]);
         }
-        return false;
+        return 0;
     }
 
-    private static boolean isSorted(int []arr){
 
-        for(int i = 0; i <= arr.length - 2; i++) {
-            if(arr[i] > arr[i + 1]){
-                return false;
+    private void quickSort(int[] arr) {
+        quickSortArray(arr, 0, arr.length - 1);
+    }
+
+    private void quickSortArray(int[] arr, int l, int r) {
+        if(r - l <= 0)
+            return;
+
+        int pivot = arr[r];
+
+        int partition = partition(arr, l, r - 1, pivot);
+        quickSortArray(arr, l, partition - 1);
+        quickSortArray(arr, partition + 1, r);
+    }
+
+    private int partition(int[] arr, int l, int r, int pivot) {
+        int i = l - 1;
+        int j = l;
+        while (j <= r) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, j, i);
             }
+            j++;
         }
-        return true;
+        swap(arr, i + 1, r + 1);
+
+        return i + 1;
     }
-
-
-    private static boolean isReversedSorted(int []arr){
-
-        for(int i = arr.length - 1; i > 0 ; i--) {
-            if(arr[i] > arr[i - 1]){
-                return false;
-            }
-        }
-        return true;
+    private void swap(int []arr , int i,int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
-
 }
-
 
