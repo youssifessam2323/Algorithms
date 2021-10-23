@@ -21,6 +21,9 @@ public class ZeroOneKnapsack {
      *           3.1.2) if the weight of item i is less that the capacity j 
      *                  ==>  assign t[i][j] to the max of either the value i + value of the prev row and the col of j - weight i
      *                       or assign it to the value of the prev row
+     * 
+     * 
+     * FOR MORE INFO GO TO THIS LINK: https://youtu.be/P0_VC8_uaXw?list=PL6KMWPQP_DM8t5pQmuLlarpmVc47DVXWd&t=3361
      */
 
     public int maxItemsInKnapsack(int [] weights, int[] values, int noOfItems, int capacity ){
@@ -43,6 +46,9 @@ public class ZeroOneKnapsack {
 
         return t[noOfItems][capacity];
     }
+
+
+    
 
 
     public static void main(String[] args) {
