@@ -48,8 +48,7 @@ public class ZeroOneKnapsack {
     }
 
 
-    
-
+   
 
     public static void main(String[] args) {
     
@@ -58,6 +57,6 @@ public class ZeroOneKnapsack {
         ZeroOneKnapsack z = new ZeroOneKnapsack();
         
 
-       System.out.println( z.maxItemsInKnapsack(new int[]{2,3,5}, new int[]{3,4,6}, 3, 10));
+       System.out.println( z.maxItemsInKnapsack(new int[]{2,3,5}, new int[]{3,4,6}, 3, 1));
     }
 }
